@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SimplifiedUser } from 'src/app/interfaces/simplified-user';
 import { environment } from 'src/environments/environment';
-
+//todo angular imports interfaces imports
 @Component({
   selector: 'app-avatar-small',
   standalone: true,

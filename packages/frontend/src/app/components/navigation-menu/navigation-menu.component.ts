@@ -45,7 +45,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { MenuItem } from 'src/app/interfaces/menu-item';
 import { MatDialog } from '@angular/material/dialog';
-
+//todo imports interfaces angular services
 @Component({
   selector: 'app-navigation-menu',
   templateUrl: './navigation-menu.component.html',

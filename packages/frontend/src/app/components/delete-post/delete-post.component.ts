@@ -10,7 +10,10 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { LoaderComponent } from "../loader/loader.component";
+//TODO angular and service imports
+//corrected
+import { LoaderComponent } from "src/app/components";
+
 @Component({
   selector: 'app-delete-post',
   templateUrl: './delete-post.component.html',
@@ -23,7 +26,7 @@ import { LoaderComponent } from "../loader/loader.component";
     MatDialogActions,
     MatDialogClose,
     LoaderComponent
-],
+  ],
 })
 export class DeletePostComponent {
   postToDelete: string;

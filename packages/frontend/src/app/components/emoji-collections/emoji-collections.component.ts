@@ -14,6 +14,8 @@ import { emojis } from 'src/app/lists/emoji-compact';
 import { PostsService } from 'src/app/services/posts.service';
 import { environment } from 'src/environments/environment';
 
+//TODO service and angular imports
+//
 @Component({
   selector: 'app-emoji-collections',
   standalone: true,
@@ -62,7 +64,7 @@ export class EmojiCollectionsComponent implements OnDestroy {
   }
 
   getEmojiCollectionFiltered(collection: EmojiCollection, query: string): Emoji[] {
-    return collection.emojis.filter(elem => elem.name.toLowerCase().includes(query.toLowerCase())).slice(0,50)
+    return collection.emojis.filter(elem => elem.name.toLowerCase().includes(query.toLowerCase())).slice(0, 50)
 
   }
 }

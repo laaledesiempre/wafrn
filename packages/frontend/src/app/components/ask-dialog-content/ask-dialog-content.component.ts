@@ -9,7 +9,7 @@ import { BlogDetails } from 'src/app/interfaces/blogDetails';
 import { BlogService } from 'src/app/services/blog.service';
 import { LoginService } from 'src/app/services/login.service';
 import { MessageService } from 'src/app/services/message.service';
-
+// todo angular imports and service imports
 @Component({
   selector: 'app-ask-dialog-content',
   standalone: true,

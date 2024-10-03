@@ -9,7 +9,9 @@ import {
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { WafrnMedia } from 'src/app/interfaces/wafrn-media';
 import { environment } from 'src/environments/environment';
-
+//
+// TODO angunar interfaces imports
+//
 @Component({
   selector: 'app-media-preview',
   templateUrl: './media-preview.component.html',

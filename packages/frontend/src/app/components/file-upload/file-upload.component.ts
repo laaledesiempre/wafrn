@@ -11,6 +11,8 @@ import { WafrnMedia } from 'src/app/interfaces/wafrn-media';
 import { MessageService } from 'src/app/services/message.service';
 import { environment } from 'src/environments/environment';
 
+// todo import angular services and interfaces
+
 @Component({
   selector: 'app-file-upload',
   standalone: true,
@@ -34,18 +36,18 @@ export class FileUploadComponent {
     buttonText: string,
     formdataName: string
   } = {
-    url :`/uploadMedia`,
-    formdataName: 'image',
-    formats: `image/*, video/*, audio/*`,
-    buttonText: ``
-  }
+      url: `/uploadMedia`,
+      formdataName: 'image',
+      formats: `image/*, video/*, audio/*`,
+      buttonText: ``
+    }
   @Output() fileUpload: EventEmitter<WafrnMedia> =
     new EventEmitter<WafrnMedia>();
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) {}
+  ) { }
 
   // DIRTY if you touch ANYTHING ELSE here you better move this to a service. UNDERSTOOD?
   // TODO undo this dirty thing, move to a service, handle errors

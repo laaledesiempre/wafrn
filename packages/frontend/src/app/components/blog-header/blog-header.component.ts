@@ -13,7 +13,9 @@ import { LoginService } from 'src/app/services/login.service';
 import { MessageService } from 'src/app/services/message.service';
 import { PostsService } from 'src/app/services/posts.service';
 import { environment } from 'src/environments/environment';
-import { AskDialogContentComponent } from '../ask-dialog-content/ask-dialog-content.component';
+// TODO services and angular imports
+// corrected
+import { AskDialogContentComponent } from 'src/app/components'
 
 @Component({
   selector: 'app-blog-header',

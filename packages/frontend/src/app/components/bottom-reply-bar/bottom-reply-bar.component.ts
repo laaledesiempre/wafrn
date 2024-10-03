@@ -11,6 +11,7 @@ import { EditorService } from 'src/app/services/editor.service';
 import { LoginService } from 'src/app/services/login.service';
 import { MessageService } from 'src/app/services/message.service';
 import { PostsService } from 'src/app/services/posts.service';
+// TODO angular and service names
 
 @Component({
   selector: 'app-bottom-reply-bar',
@@ -35,148 +36,148 @@ export class BottomReplyBarComponent implements OnChanges {
   loadingAction = false;
   myRewootsIncludePost = false;
 
-    // icons
-    shareIcon = faShareNodes;
-    expandDownIcon = faChevronDown;
-    solidHeartIcon = faHeart;
-    clearHeartIcon = faHeartBroken;
-    reblogIcon = faReply;
-    quickReblogIcon = faRepeat;
-    quoteIcon = faQuoteLeft;
-    shareExternalIcon = faArrowUpRightFromSquare;
-    deleteIcon = faTrash;
-    closeIcon = faClose;
-    worldIcon = faGlobe;
-    unlockIcon = faUnlock;
-    envelopeIcon = faEnvelope;
-    serverIcon = faServer;
-    userIcon = faUser;
-    editedIcon = faPen;
-    checkIcon = faCheck;
+  // icons
+  shareIcon = faShareNodes;
+  expandDownIcon = faChevronDown;
+  solidHeartIcon = faHeart;
+  clearHeartIcon = faHeartBroken;
+  reblogIcon = faReply;
+  quickReblogIcon = faRepeat;
+  quoteIcon = faQuoteLeft;
+  shareExternalIcon = faArrowUpRightFromSquare;
+  deleteIcon = faTrash;
+  closeIcon = faClose;
+  worldIcon = faGlobe;
+  unlockIcon = faUnlock;
+  envelopeIcon = faEnvelope;
+  serverIcon = faServer;
+  userIcon = faUser;
+  editedIcon = faPen;
+  checkIcon = faCheck;
 
-    constructor(
-      private loginService: LoginService,
-      private postService: PostsService,
-      private editorService: EditorService,
-      private deletePostService: DeletePostService,
-      private messages: MessageService,
-      private editor: EditorService
-    ) {
-      this.userLoggedIn = loginService.checkUserLoggedIn();
-      if (this.userLoggedIn) {
-        this.myId = loginService.getLoggedUserUUID();
-      }
-
+  constructor(
+    private loginService: LoginService,
+    private postService: PostsService,
+    private editorService: EditorService,
+    private deletePostService: DeletePostService,
+    private messages: MessageService,
+    private editor: EditorService
+  ) {
+    this.userLoggedIn = loginService.checkUserLoggedIn();
+    if (this.userLoggedIn) {
+      this.myId = loginService.getLoggedUserUUID();
     }
 
+  }
 
-    ngOnChanges(changes: SimpleChanges): void {
-      this.myRewootsIncludePost = this.postService.rewootedPosts.includes(this.fragment.id)
 
-      
-        const finalOne = this.fragment
-        this.isEmptyReblog =  (
-          this.fragment &&
-          finalOne.content == '' &&
-          finalOne.tags.length == 0 &&
-          finalOne.quotes.length == 0 &&
-          !finalOne.questionPoll &&
-          finalOne.medias?.length == 0
-        );
-      }
-    
+  ngOnChanges(changes: SimpleChanges): void {
+    this.myRewootsIncludePost = this.postService.rewootedPosts.includes(this.fragment.id)
 
-    async replyPost(post: ProcessedPost) {
-      await this.editorService.replyPost(post);
-    }
-  
-    async quotePost(post: ProcessedPost) {
-      await this.editorService.quotePost(post);
-    }
-  
-    async editPost(post: ProcessedPost) {
-      await this.editorService.replyPost(post, true);
-    }
-  
-    async deletePost(id: string) {
-      this.deletePostService.openDeletePostDialog(id);
-    }
-  
-    async deleteRewoots(id: string) {
-      this.loadingAction = true;
-      const success = await firstValueFrom(this.deletePostService.deleteRewoots(id));
-      if(success){
-        this.myRewootsIncludePost = false;
-      }
-      this.loadingAction = false;
-    }
 
-    async likePost(postToLike: ProcessedPost) {
-      this.loadingAction = true;
-      if (await this.postService.likePost(postToLike.id)) {
-        postToLike.userLikesPostRelations.push(this.myId);
+    const finalOne = this.fragment
+    this.isEmptyReblog = (
+      this.fragment &&
+      finalOne.content == '' &&
+      finalOne.tags.length == 0 &&
+      finalOne.quotes.length == 0 &&
+      !finalOne.questionPoll &&
+      finalOne.medias?.length == 0
+    );
+  }
+
+
+  async replyPost(post: ProcessedPost) {
+    await this.editorService.replyPost(post);
+  }
+
+  async quotePost(post: ProcessedPost) {
+    await this.editorService.quotePost(post);
+  }
+
+  async editPost(post: ProcessedPost) {
+    await this.editorService.replyPost(post, true);
+  }
+
+  async deletePost(id: string) {
+    this.deletePostService.openDeletePostDialog(id);
+  }
+
+  async deleteRewoots(id: string) {
+    this.loadingAction = true;
+    const success = await firstValueFrom(this.deletePostService.deleteRewoots(id));
+    if (success) {
+      this.myRewootsIncludePost = false;
+    }
+    this.loadingAction = false;
+  }
+
+  async likePost(postToLike: ProcessedPost) {
+    this.loadingAction = true;
+    if (await this.postService.likePost(postToLike.id)) {
+      postToLike.userLikesPostRelations.push(this.myId);
+      this.messages.add({
+        severity: 'success',
+        summary: 'You successfully liked this woot',
+      });
+    } else {
+      this.messages.add({
+        severity: 'error',
+        summary: 'Something went wrong. Please try again',
+      });
+    }
+    this.loadingAction = false;
+  }
+
+  async unlikePost(postToUnlike: ProcessedPost) {
+    this.loadingAction = true;
+    if (await this.postService.unlikePost(postToUnlike.id)) {
+      postToUnlike.userLikesPostRelations =
+        postToUnlike.userLikesPostRelations.filter((elem) => elem != this.myId);
+      this.messages.add({
+        severity: 'success',
+        summary: 'You no longer like this woot',
+      });
+    } else {
+      this.messages.add({
+        severity: 'error',
+        summary: 'Something went wrong. Please try again',
+      });
+    }
+    this.loadingAction = false;
+  }
+
+  async quickReblog(postToBeReblogged: ProcessedPost) {
+    this.loadingAction = true;
+    if (postToBeReblogged?.privacy !== 10) {
+      const response = await this.editor.createPost({
+        content: '',
+        idPostToReblog: postToBeReblogged.id,
+        privacy: 0,
+        media: [],
+      });
+      if (response) {
+        this.myRewootsIncludePost = true;
         this.messages.add({
           severity: 'success',
-          summary: 'You successfully liked this woot',
+          summary: 'You reblogged the woot succesfully',
         });
       } else {
         this.messages.add({
           severity: 'error',
-          summary: 'Something went wrong. Please try again',
-        });
-      }
-      this.loadingAction = false;
-    }
-  
-    async unlikePost(postToUnlike: ProcessedPost) {
-      this.loadingAction = true;
-      if (await this.postService.unlikePost(postToUnlike.id)) {
-        postToUnlike.userLikesPostRelations =
-          postToUnlike.userLikesPostRelations.filter((elem) => elem != this.myId);
-        this.messages.add({
-          severity: 'success',
-          summary: 'You no longer like this woot',
-        });
-      } else {
-        this.messages.add({
-          severity: 'error',
-          summary: 'Something went wrong. Please try again',
-        });
-      }
-      this.loadingAction = false;
-    }
-
-    async quickReblog(postToBeReblogged: ProcessedPost) {
-      this.loadingAction = true;
-      if (postToBeReblogged?.privacy !== 10) {
-        const response = await this.editor.createPost({
-          content: '',
-          idPostToReblog: postToBeReblogged.id,
-          privacy: 0,
-          media: [],
-        });
-        if (response) {
-          this.myRewootsIncludePost = true;
-          this.messages.add({
-            severity: 'success',
-            summary: 'You reblogged the woot succesfully',
-          });
-        } else {
-          this.messages.add({
-            severity: 'error',
-            summary:
-              'Something went wrong! Check your internet conectivity and try again',
-          });
-        }
-      } else {
-        this.messages.add({
-          severity: 'warn',
           summary:
-            'Sorry, this woot is not rebloggeable as requested by the user',
+            'Something went wrong! Check your internet conectivity and try again',
         });
       }
-      this.loadingAction = false;
+    } else {
+      this.messages.add({
+        severity: 'warn',
+        summary:
+          'Sorry, this woot is not rebloggeable as requested by the user',
+      });
     }
+    this.loadingAction = false;
+  }
 
 }
 

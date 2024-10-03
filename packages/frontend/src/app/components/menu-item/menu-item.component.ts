@@ -6,8 +6,8 @@ import { Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MenuItem } from 'src/app/interfaces/menu-item';
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import {MatBadgeModule} from '@angular/material/badge';
-
+import { MatBadgeModule } from '@angular/material/badge';
+//TODO angular interfaces imports
 @Component({
   selector: 'app-menu-item',
   standalone: true,
@@ -37,14 +37,14 @@ export class MenuItemComponent {
     // TODO href and routerlink in the same page, a way of not doing it this dirty way
     // this is BAD for accesibility you know
     // the other option was an ngif and displaying it depending on this. not cool!
-    if(this.item.url) {
+    if (this.item.url) {
       window.open(this.item.url, '_blank');
     }
-    if(this.item.routerLink) {
+    if (this.item.routerLink) {
       this.router.navigate([this.item.routerLink])
-      console.log('navigationg to... '+ this.item.routerLink)
+      console.log('navigationg to... ' + this.item.routerLink)
     }
-    if(this.item.command) {
+    if (this.item.command) {
       this.item.command();
     }
   }
