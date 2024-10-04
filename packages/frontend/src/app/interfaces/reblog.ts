@@ -1,6 +1,8 @@
-import { Emoji } from "./emoji";
-import { ProcessedPost } from "./processed-post";
-import { SimplifiedUser } from "./simplified-user";
+import { 
+    Emoji,
+    ProcessedPost,
+    SimplifiedUser
+} from "src/app/interfaces";
 
 export interface Reblog {
     user: SimplifiedUser,

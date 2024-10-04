@@ -1,4 +1,6 @@
-import { Emoji } from './emoji';
+import { 
+  Emoji
+} from 'src/app/interfaces';
 
 export interface SimplifiedUser {
   avatar: string;

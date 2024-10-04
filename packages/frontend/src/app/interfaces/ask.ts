@@ -1,5 +1,5 @@
-import { SimplifiedUser } from "./simplified-user";
-// TODO imports interfaces
+import { SimplifiedUser } from "src/app/interfaces";
+
 export interface Ask {
     id: string
     userAsker: string,

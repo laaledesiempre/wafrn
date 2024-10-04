@@ -1,4 +1,4 @@
-import { SimplifiedUser } from "./simplified-user";
+import { SimplifiedUser } from "src/app/interfaces";
 
 export interface WafrnMention {
     userId: string,

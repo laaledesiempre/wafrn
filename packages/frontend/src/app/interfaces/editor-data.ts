@@ -1,6 +1,5 @@
-import { Ask } from "./ask";
-import { ProcessedPost } from "./processed-post";
-// imports from interfaces
+import { Ask, ProcessedPost } from "src/app/interfaces"
+
 export interface EditorData {
     scrollDate: Date,
     path: string,

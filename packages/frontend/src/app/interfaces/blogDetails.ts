@@ -1,7 +1,5 @@
-import { Emoji } from "./emoji";
-import { FederatedHost } from "./federatedHost";
-import { PublicOption } from "./publicOption";
-// TODO imports from interfaces
+import { Emoji, FederatedHost, PublicOption } from "src/app/interfaces"
+
 export interface BlogDetails {
 
     id: string;

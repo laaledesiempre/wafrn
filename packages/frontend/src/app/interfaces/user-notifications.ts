@@ -1,6 +1,8 @@
 import { NotificationType } from '../enums/notification-type';
-import { Emoji } from './emoji';
-import { ProcessedPost } from './processed-post';
+import { 
+  Emoji,
+  ProcessedPost,
+} from "src/app/interfaces"
 
 export interface UserNotifications {
   url: string;

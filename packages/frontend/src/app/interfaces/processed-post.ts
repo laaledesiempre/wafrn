@@ -1,13 +1,13 @@
-import { SimplifiedUser } from './simplified-user';
-import { WafrnMedia } from './wafrn-media';
-import { Tag } from './tag';
-import { WafrnMention } from './wafrn-mention';
-import { Emoji } from './emoji';
-import { RawPost } from './raw-post';
-import { QuestionPoll } from './questionPoll';
-import { PostEmojiReaction } from './unlinked-posts';
-import { Ask } from './ask';
-// TODO imports from interfaces
+import {
+  SimplifiedUser,
+  WafrnMedia,
+  Tag,
+  Emoji,
+  RawPost,
+  QuestionPoll,
+  PostEmojiReaction,
+  Ask
+} from "src/app/interfaces"
 
 export interface ProcessedPost {
   id: string;

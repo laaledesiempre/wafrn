@@ -1,4 +1,6 @@
-import { bullMQMetric } from './bullmq-metric';
+import {
+ bullMQMetric 
+} from 'src/app/interfaces';
 
 export interface statsReply {
   sendPostFailed: bullMQMetric;

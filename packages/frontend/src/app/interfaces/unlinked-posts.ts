@@ -1,6 +1,8 @@
-import { Ask } from './ask';
-import { Emoji } from './emoji';
-import { SimplifiedUser } from './simplified-user';
+import { 
+  Ask,
+  Emoji,
+  SimplifiedUser 
+} from 'src/app/interfaces';
 
 export interface unlinkedPosts {
   posts: basicPost[];

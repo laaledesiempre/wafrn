@@ -1,5 +1,5 @@
-import { Emoji } from "./emoji";
-// TODO import from interfaces
+import { Emoji } from "src/app/interfaces"
+
 export interface EmojiCollection{
     name: string,
     emojis: Emoji[],

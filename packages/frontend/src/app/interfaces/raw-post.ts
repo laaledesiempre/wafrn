@@ -1,10 +1,11 @@
-import { SimplifiedUser } from "./simplified-user";
-import { WafrnMedia } from "./wafrn-media";
-import { Tag } from "./tag";
-import { WafrnMention } from "./wafrn-mention";
-import { Emoji } from "./emoji";
-import { QuestionPoll } from "./questionPoll";
-// TODO import from interfaces
+import {
+    SimplifiedUser,
+    WafrnMedia,
+    Tag,
+    Emoji,
+    QuestionPoll
+} from "src/app/interfaces"
+
 export interface RawPost {
     id:             string;
     content_warning:           string;
