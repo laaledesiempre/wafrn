@@ -1,5 +1,5 @@
 import { ProcessedPost } from './processed-post';
-
+// TODO imports from interfaces
 export enum Action {
     None,
     New,

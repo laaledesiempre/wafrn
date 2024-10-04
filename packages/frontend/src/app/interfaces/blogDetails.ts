@@ -1,7 +1,7 @@
 import { Emoji } from "./emoji";
 import { FederatedHost } from "./federatedHost";
 import { PublicOption } from "./publicOption";
-
+// TODO imports from interfaces
 export interface BlogDetails {
 
     id: string;

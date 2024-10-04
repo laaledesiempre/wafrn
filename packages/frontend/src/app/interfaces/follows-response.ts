@@ -1,5 +1,5 @@
 import { SimplifiedUser } from "./simplified-user";
-
+//( TODO imports form interfacaezs
 export interface followsResponse  extends SimplifiedUser{
     follows: {
 

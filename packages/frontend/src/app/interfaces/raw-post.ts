@@ -4,7 +4,7 @@ import { Tag } from "./tag";
 import { WafrnMention } from "./wafrn-mention";
 import { Emoji } from "./emoji";
 import { QuestionPoll } from "./questionPoll";
-
+// TODO import from interfaces
 export interface RawPost {
     id:             string;
     content_warning:           string;
