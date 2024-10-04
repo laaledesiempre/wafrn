@@ -1,16 +1,19 @@
 import { Component, Input } from '@angular/core';
-import { AvatarSmallComponent } from '../../avatar-small/avatar-small.component';
-import { ProcessedPost } from 'src/app/interfaces/processed-post';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { PostsService } from 'src/app/services/posts.service';
-import { MessageService } from 'src/app/services/message.service';
-import { LoginService } from 'src/app/services/login.service';
-import { PostActionsComponent } from '../../post-actions/post-actions.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faShareNodes, faChevronDown, faHeart, faHeartBroken, faReply, faRepeat, faQuoteLeft, faArrowUpRightFromSquare, faTrash, faClose, faGlobe, faUnlock, faEnvelope, faServer, faUser, faPen } from '@fortawesome/free-solid-svg-icons';
 import { MatButtonModule } from '@angular/material/button';
+
+
+import { faShareNodes, faChevronDown, faHeart, faHeartBroken, faReply, faRepeat, faQuoteLeft, faArrowUpRightFromSquare, faTrash, faClose, faGlobe, faUnlock, faEnvelope, faServer, faUser, faPen } from '@fortawesome/free-solid-svg-icons';
+
+import { MessageService } from 'src/app/services/message.service';
+import { LoginService } from 'src/app/services/login.service';
+import { PostsService } from 'src/app/services/posts.service';
+
+import { PostActionsComponent, AvatarSmallComponent } from 'src/app/components';
+import { ProcessedPost } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-post-header',

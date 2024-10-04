@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { QuestionPoll } from 'src/app/interfaces/questionPoll';
+
+import { QuestionPoll } from 'src/app/interfaces';
+
 import { LoginService } from 'src/app/services/login.service';
 import { PostsService } from 'src/app/services/posts.service';
 

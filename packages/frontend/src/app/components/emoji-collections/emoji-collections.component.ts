@@ -8,14 +8,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { Emoji } from 'src/app/interfaces/emoji';
-import { EmojiCollection } from 'src/app/interfaces/emoji-collection';
 import { emojis } from 'src/app/lists/emoji-compact';
 import { PostsService } from 'src/app/services/posts.service';
 import { environment } from 'src/environments/environment';
 
 //TODO service and angular imports
 //
+
+import { Emoji, EmojiCollection } from 'src/app/interfaces';
+
 @Component({
   selector: 'app-emoji-collections',
   standalone: true,

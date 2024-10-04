@@ -7,7 +7,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronDown, faServer, faUser, faUserSlash, faVolumeMute, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
-import { BlogDetails } from 'src/app/interfaces/blogDetails';
 import { BlocksService } from 'src/app/services/blocks.service';
 import { LoginService } from 'src/app/services/login.service';
 import { MessageService } from 'src/app/services/message.service';
@@ -16,6 +15,8 @@ import { environment } from 'src/environments/environment';
 // TODO services and angular imports
 // corrected
 import { AskDialogContentComponent } from 'src/app/components'
+
+import { BlogDetails } from "src/app/interfaces"
 
 @Component({
   selector: 'app-blog-header',

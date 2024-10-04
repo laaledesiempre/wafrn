@@ -4,10 +4,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MenuItem } from 'src/app/interfaces/menu-item';
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { MatBadgeModule } from '@angular/material/badge';
-//TODO angular interfaces imports
+
+import { MenuItem } from 'src/app/interfaces';
+
 @Component({
   selector: 'app-menu-item',
   standalone: true,

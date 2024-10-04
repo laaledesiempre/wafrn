@@ -5,13 +5,13 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faShareNodes, faChevronDown, faHeart, faHeartBroken, faReply, faRepeat, faQuoteLeft, faArrowUpRightFromSquare, faTrash, faClose, faGlobe, faUnlock, faEnvelope, faServer, faUser, faPen, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { firstValueFrom, Observable } from 'rxjs';
-import { ProcessedPost } from 'src/app/interfaces/processed-post';
 import { DeletePostService } from 'src/app/services/delete-post.service';
 import { EditorService } from 'src/app/services/editor.service';
 import { LoginService } from 'src/app/services/login.service';
 import { MessageService } from 'src/app/services/message.service';
 import { PostsService } from 'src/app/services/posts.service';
 // TODO angular and service names
+import { ProcessedPost } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-bottom-reply-bar',

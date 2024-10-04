@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Action } from 'src/app/interfaces/editor-launcher-data';
 import { AdminService } from 'src/app/services/admin.service';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { EditorService } from 'src/app/services/editor.service';
@@ -43,9 +42,10 @@ import {
   faIcons,
   faSkull
 } from '@fortawesome/free-solid-svg-icons';
-import { MenuItem } from 'src/app/interfaces/menu-item';
 import { MatDialog } from '@angular/material/dialog';
-//todo imports interfaces angular services
+
+import { MenuItem, Action } from 'src/app/interfaces';
+
 @Component({
   selector: 'app-navigation-menu',
   templateUrl: './navigation-menu.component.html',

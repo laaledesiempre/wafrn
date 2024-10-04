@@ -7,14 +7,9 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { ProcessedPost } from 'src/app/interfaces/processed-post';
-import { EditorService } from 'src/app/services/editor.service';
-import { LoginService } from 'src/app/services/login.service';
-import { PostsService } from 'src/app/services/posts.service';
+
 import { environment } from 'src/environments/environment';
-import { DeletePostService } from 'src/app/services/delete-post.service';
-import { Action } from 'src/app/interfaces/editor-launcher-data';
-import { MessageService } from 'src/app/services/message.service';
+
 import {
   faArrowUpRightFromSquare,
   faChevronDown,
@@ -34,6 +29,14 @@ import {
   faQuoteLeft,
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
+
+import { LoginService } from 'src/app/services/login.service';
+import { PostsService } from 'src/app/services/posts.service';
+import { MessageService } from 'src/app/services/message.service';
+import { EditorService } from 'src/app/services/editor.service';
+import { DeletePostService } from 'src/app/services/delete-post.service';
+
+import { ProcessedPost, Action } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-post',

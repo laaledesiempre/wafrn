@@ -7,11 +7,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
 import { lastValueFrom } from 'rxjs';
-import { WafrnMedia } from 'src/app/interfaces/wafrn-media';
 import { MessageService } from 'src/app/services/message.service';
 import { environment } from 'src/environments/environment';
 
 // todo import angular services and interfaces
+import { WafrnMedia } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-file-upload',

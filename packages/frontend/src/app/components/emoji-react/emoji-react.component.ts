@@ -3,15 +3,14 @@ import { Component, Input } from '@angular/core';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { MatButtonModule } from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { PostsService } from 'src/app/services/posts.service';
 import { MessageService } from 'src/app/services/message.service';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { Emoji } from 'src/app/interfaces/emoji';
 // TODO angular and services imports
 //corrected
 //
 import { LoaderComponent, EmojiCollectionsComponent } from 'src/app/components';
-
+import { Emoji } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-emoji-react',
