@@ -5,10 +5,13 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { environment } from 'src/environments/environment';
-import { PostFragmentComponent } from '../post-fragment/post-fragment.component';
 import { MatButton } from '@angular/material/button';
-import { AvatarSmallComponent } from "../avatar-small/avatar-small.component";
-import { PostHeaderComponent } from "../post/post-header/post-header.component";
+// todo interfaces import
+import{
+PostHeaderComponent ,
+PostFragmentComponent ,
+AvatarSmallComponent 
+} from 'src/app/components';
 
 @Component({
   selector: 'app-single-notification',

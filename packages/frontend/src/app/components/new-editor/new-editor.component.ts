@@ -10,18 +10,13 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FontAwesomeModule, IconDefinition } from '@fortawesome/angular-fontawesome';
 import { faClose, faEnvelope, faGlobe, faQuoteLeft, faServer, faUnlock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { EditorData } from 'src/app/interfaces/editor-data';
-import { PostHeaderComponent } from '../post/post-header/post-header.component';
-import { PostFragmentComponent } from '../post-fragment/post-fragment.component';
 import { environment } from 'src/environments/environment';
 import { QuestionPollQuestion } from 'src/app/interfaces/questionPoll';
-import { SingleAskComponent } from '../single-ask/single-ask.component';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
-import { FileUploadComponent } from '../file-upload/file-upload.component';
 import { WafrnMedia } from 'src/app/interfaces/wafrn-media';
 import { MessageService } from 'src/app/services/message.service';
 import { ProcessedPost } from 'src/app/interfaces/processed-post';
 import { DashboardService } from 'src/app/services/dashboard.service';
-import { MediaPreviewComponent } from '../media-preview/media-preview.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { EditorService } from 'src/app/services/editor.service';
 import { LoginService } from 'src/app/services/login.service';
@@ -29,8 +24,19 @@ import { PostsService } from 'src/app/services/posts.service';
 import { EmojiCollection } from 'src/app/interfaces/emoji-collection';
 import { from, debounceTime, Subscription } from 'rxjs';
 import { JwtService } from 'src/app/services/jwt.service';
-import { AvatarSmallComponent } from '../avatar-small/avatar-small.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+//
+// corrected
+
+import { 
+  PostHeaderComponent,
+  PostFragmentComponent,
+  SingleAskComponent,
+  FileUploadComponent,
+  MediaPreviewComponent,
+  AvatarSmallComponent 
+} from 'src/app/components';
+
 
 @Component({
   selector: 'app-new-editor',

@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+// TODO interfaces and services imports
 @Component({
   selector: 'app-report-post',
   templateUrl: './report-post.component.html',

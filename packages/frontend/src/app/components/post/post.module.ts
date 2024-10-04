@@ -9,12 +9,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReportService } from 'src/app/services/report.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { PostFragmentComponent } from '../post-fragment/post-fragment.component';
-import { PostActionsComponent } from '../post-actions/post-actions.component';
-import { AvatarSmallComponent } from '../avatar-small/avatar-small.component';
-import { PostHeaderComponent } from "./post-header/post-header.component";
-import { BottomReplyBarComponent } from "../bottom-reply-bar/bottom-reply-bar.component";
-
+// TODO imports angular
+import{
+PostFragmentComponent ,
+PostActionsComponent  ,
+ AvatarSmallComponent , 
+PostHeaderComponent ,
+BottomReplyBarComponent 
+} from 'src/app/components';
 @NgModule({
   declarations: [PostComponent],
   imports: [

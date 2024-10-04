@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { AvatarSmallComponent } from '../avatar-small/avatar-small.component';
 import { Ask } from 'src/app/interfaces/ask';
+
+import {
+  AvatarSmallComponent 
+} from 'src/app/components';
 
 @Component({
   selector: 'app-single-ask',

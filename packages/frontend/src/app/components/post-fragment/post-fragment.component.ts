@@ -9,8 +9,6 @@ import {
   Output,
 } from '@angular/core';
 import { ProcessedPost } from 'src/app/interfaces/processed-post';
-import { PollModule } from '../poll/poll.module';
-import { WafrnMediaModule } from '../wafrn-media/wafrn-media.module';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { SimplifiedUser } from 'src/app/interfaces/simplified-user';
@@ -19,13 +17,18 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { PostsService } from 'src/app/services/posts.service';
 import { LoginService } from 'src/app/services/login.service';
 import { JwtService } from 'src/app/services/jwt.service';
-import { EmojiReactComponent } from '../emoji-react/emoji-react.component';
 import { MessageService } from 'src/app/services/message.service';
 import { Emoji } from 'src/app/interfaces/emoji';
 import { InjectHtmlModule } from 'src/app/directives/inject-html/inject-html.module';
-import { AvatarSmallComponent } from '../avatar-small/avatar-small.component';
-import { PostHeaderComponent } from "../post/post-header/post-header.component";
-import { SingleAskComponent } from '../single-ask/single-ask.component';
+// todo interfaces and services imports
+import {
+EmojiReactComponent ,
+AvatarSmallComponent ,
+PostHeaderComponent ,
+SingleAskComponent ,
+PollModule ,
+WafrnMediaModule 
+} from 'src/app/components';
 
 type EmojiReaction = {
   id: string;
