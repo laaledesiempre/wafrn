@@ -1,20 +1,20 @@
 import { generateKeyPairSync } from 'crypto'
 import bcrypt from 'bcrypt'
-import { environment } from './environment'
-import { logger } from './utils/logger'
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { Sequelize } = require('sequelize')
+import { environment } from './environment.js'
+import { logger } from './utils/logger.js'
+import { Sequelize } from 'sequelize'
 import { Model, InferAttributes, InferCreationAttributes, DataTypes } from 'sequelize'
-import { redisCache } from './utils/redis'
+import { redisCache } from './utils/redis.js'
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-require('sequelize-hierarchy-fork')(Sequelize)
+// @ts-ignore sequelize-hierarchy-fork has no types
+import sequelizeHierarchyFork from 'sequelize-hierarchy-fork'
+sequelizeHierarchyFork(Sequelize)
 
 const sequelize = new Sequelize(environment.databaseConnectionString, {
-  logging: (sql: any, time: number) => {
+  logging: (sql: any, time?: number) => {
     if (environment.logSQLQueries) {
       logger.trace({ duration: time, query: sql })
-    } else if (time > 2500) {
+    } else if (time && time > 2500) {
       logger.warn({ duration: time, query: sql })
     }
   },
@@ -520,7 +520,6 @@ const UserEmojiRelation = sequelize.define('userEmojiRelations', {})
 
 const PostEmojiRelations = sequelize.define('postEmojiRelations', {})
 
-
 const PostMentionsUserRelation = sequelize.define(
   'postMentionsUserRelations',
   {},
@@ -829,16 +828,21 @@ User.belongsToMany(Post, {
 
 sequelize
   .sync({
-    force: environment.forceSync
+    force: false
   })
   .then(async () => {
-    if (environment.forceSync) {
-      logger.info('CLEANING DATA. Creating admin and deleted user')
-
-      // clear all keys stored in redis cache before cleaning the database
-      // this wont affect the bull queues because they are stored in a different redis database
+    let adminUser = await User.findOne({
+      where: {
+        url: environment.adminUser
+      }
+    })
+    let delUser = await User.findOne({
+      where: {
+        url: environment.deletedUser
+      }
+    })
+    if (!adminUser || !delUser) {
       await redisCache.flushdb()
-
       const { publicKey, privateKey } = generateKeyPairSync('rsa', {
         modulusLength: 4096,
         publicKeyEncoding: {
@@ -889,8 +893,8 @@ sequelize
         publicKey
       }
 
-      const adminUser = await User.create(admin)
-      const del = await User.create(deleted)
+      adminUser = adminUser ? adminUser : await User.create(admin)
+      delUser = delUser ? delUser : await User.create(deleted)
     }
   })
 

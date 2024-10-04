@@ -36,6 +36,7 @@ export class BlogHeaderComponent implements OnChanges, OnDestroy {
   avatarUrl = '';
   headerUrl = '';
   userLoggedIn = false;
+  isMe = false;
   fediAttachment: { name: string, value: string }[] = []
   expandDownIcon = faChevronDown;
   muteUserIcon = faVolumeMute;
@@ -86,6 +87,7 @@ export class BlogHeaderComponent implements OnChanges, OnDestroy {
       if (fediAttachment) {
         this.fediAttachment = JSON.parse(fediAttachment.optionValue)
       }
+      this.isMe = this.blogDetails.id == this.loginService.getLoggedUserUUID()
 
     }
   }

@@ -2,10 +2,9 @@ import express, { Application, Express, Request, Response } from 'express'
 import crypto from 'crypto'
 import fs from 'fs'
 import axios from 'axios'
-import { logger } from '../utils/logger'
-import optimizeMedia from '../utils/optimizeMedia'
-import { environment } from '../environment'
-const gm = require('gm')
+import { logger } from '../utils/logger.js'
+import optimizeMedia from '../utils/optimizeMedia.js'
+import { environment } from '../environment.js'
 
 export default function cacheRoutes(app: Application) {
   app.get('/api/cache', async (req: Request, res: Response) => {
@@ -75,6 +74,7 @@ export default function cacheRoutes(app: Application) {
         url: req.query?.media,
         error: error
       })
+      res.sendStatus(500)
     }
   })
 }

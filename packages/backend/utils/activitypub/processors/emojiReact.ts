@@ -1,7 +1,7 @@
-import { Emoji, EmojiReaction } from '../../../db'
-import { activityPubObject } from '../../../interfaces/fediverse/activityPubObject'
-import { getPostThreadRecursive } from '../getPostThreadRecursive'
-import { signAndAccept } from '../signAndAccept'
+import { Emoji, EmojiReaction } from '../../../db.js'
+import { activityPubObject } from '../../../interfaces/fediverse/activityPubObject.js'
+import { getPostThreadRecursive } from '../getPostThreadRecursive.js'
+import { signAndAccept } from '../signAndAccept.js'
 
 async function EmojiReactActivity(body: activityPubObject, remoteUser: any, user: any) {
   const apObject: activityPubObject = body

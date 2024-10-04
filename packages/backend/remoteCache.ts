@@ -1,9 +1,9 @@
 import express, { Response } from 'express'
 import cors from 'cors'
-import { environment } from './environment'
-import { logger } from './utils/logger'
-import cacheRoutes from './routes/remoteCache'
-import checkIpBlocked from './utils/checkIpBlocked'
+import { environment } from './environment.js'
+import { logger } from './utils/logger.js'
+import cacheRoutes from './routes/remoteCache.js'
+import checkIpBlocked from './utils/checkIpBlocked.js'
 
 const PORT = environment.cachePort
 

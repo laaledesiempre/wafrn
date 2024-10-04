@@ -1,13 +1,13 @@
 import { Op, Sequelize } from 'sequelize'
-import { Emoji, FederatedHost, Post, User, sequelize } from '../../db'
-import { environment } from '../../environment'
-import { activityPubObject } from '../../interfaces/fediverse/activityPubObject'
-import { postPetitionSigned } from './postPetitionSigned'
-import { logger } from '../logger'
+import { Emoji, FederatedHost, Post, User, sequelize } from '../../db.js'
+import { environment } from '../../environment.js'
+import { activityPubObject } from '../../interfaces/fediverse/activityPubObject.js'
+import { postPetitionSigned } from './postPetitionSigned.js'
+import { logger } from '../logger.js'
 import { Queue } from 'bullmq'
 import _ from 'underscore'
-import { emojiToAPTag } from './emojiToAPTag'
-import { isDatabaseMysql } from '../isDatabaseMysql'
+import { emojiToAPTag } from './emojiToAPTag.js'
+import { isDatabaseMysql } from '../isDatabaseMysql.js'
 
 const sendPostQueue = new Queue('sendPostToInboxes', {
   connection: environment.bullmqConnection,

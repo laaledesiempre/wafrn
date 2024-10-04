@@ -3,8 +3,8 @@
 
   <div (keyup)="showPicture()" class="img-container media-description bg-black-alpha-10">
     <img #wafrnMedia *ngIf="
-      (!extensionsToHideImgTag.includes(extension)) ||
-      mimeType === 'UNKNOWN'
+      ((!extensionsToHideImgTag.includes(extension)) ||
+      mimeType === 'UNKNOWN') && !mimeType.startsWith('video')
     " [src]="displayUrl" [alt]="data.description" role="none" loading="lazy" [ngClass]="{
       'nsfw': nsfw,
       'displayed-image': !nsfw

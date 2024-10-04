@@ -1,10 +1,10 @@
 import { Application, Response } from 'express'
-import { authenticateToken } from '../utils/authenticateToken'
-import AuthorizedRequest from '../interfaces/authorizedRequest'
-import { getMutedPosts } from '../utils/cacheGetters/getMutedPosts'
-import { getUnjointedPosts } from '../utils/baseQueryNew'
-import { Post, SilencedPost } from '../db'
-import { redisCache } from '../utils/redis'
+import { authenticateToken } from '../utils/authenticateToken.js'
+import AuthorizedRequest from '../interfaces/authorizedRequest.js'
+import { getMutedPosts } from '../utils/cacheGetters/getMutedPosts.js'
+import { getUnjointedPosts } from '../utils/baseQueryNew.js'
+import { Post, SilencedPost } from '../db.js'
+import { redisCache } from '../utils/redis.js'
 
 export default function silencePostRoutes(app: Application) {
   // to see your silenced posts we usethe dashboard endpoint with level 25

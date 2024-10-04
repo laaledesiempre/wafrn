@@ -11,15 +11,16 @@ import {
   User,
   sequelize,
   Ask
-} from '../../db'
-import { environment } from '../../environment'
-import { logger } from '../logger'
-import { getRemoteActor } from './getRemoteActor'
-import { getPetitionSigned } from './getPetitionSigned'
-import { fediverseTag } from '../../interfaces/fediverse/tags'
-import { loadPoll } from './loadPollFromPost'
-import { getApObjectPrivacy } from './getPrivacy'
+} from '../../db.js'
+import { environment } from '../../environment.js'
+import { logger } from '../logger.js'
+import { getRemoteActor } from './getRemoteActor.js'
+import { getPetitionSigned } from './getPetitionSigned.js'
+import { fediverseTag } from '../../interfaces/fediverse/tags.js'
+import { loadPoll } from './loadPollFromPost.js'
+import { getApObjectPrivacy } from './getPrivacy.js'
 import * as DOMPurify from 'isomorphic-dompurify'
+import { Queue } from 'bullmq'
 
 const deletedUser = environment.forceSync
   ? undefined
@@ -28,6 +29,19 @@ const deletedUser = environment.forceSync
       url: environment.deletedUser
     }
   })
+
+const updateMediaDataQueue = new Queue("processRemoteMediaData", {
+  connection: environment.bullmqConnection,
+  defaultJobOptions: {
+    removeOnComplete: true,
+    attempts: 3,
+    backoff: {
+      type: "exponential",
+      delay: 1000,
+    },
+    removeOnFail: 25000,
+  },
+});
 
 async function getPostThreadRecursive(
   user: any,
@@ -126,9 +140,16 @@ async function getPostThreadRecursive(
               mediaType: remoteFile.mediaType ? remoteFile.mediaType : '',
               blurhash: remoteFile.blurhash ? remoteFile.blurhash : null,
               height: remoteFile.height ? remoteFile.height : null,
-              width: remoteFile.width ? remoteFile.width : null,
+              width: remoteFile.width ? remoteFile.width : null
             })
+            if (!wafrnMedia.mediaType || (wafrnMedia.mediaType?.startsWith('image') && !wafrnMedia.width)) {
+              await updateMediaDataQueue.add(`updateMedia:${wafrnMedia.id}`, {
+                mediaId: wafrnMedia.id
+              }
+              )
+            }
             medias.push(wafrnMedia)
+
           } else {
             postTextContent = '' + postTextContent + `<a href="${remoteFile.href}" >${remoteFile.href}</a>`
           }

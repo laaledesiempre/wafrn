@@ -1,12 +1,12 @@
 import { Op } from 'sequelize'
-import { Media, Post, PostTag, User } from '../../db'
-import { environment } from '../../environment'
-import { fediverseTag } from '../../interfaces/fediverse/tags'
-import { activityPubObject } from '../../interfaces/fediverse/activityPubObject'
-import { emojiToAPTag } from './emojiToAPTag'
-import { getPostReplies } from './getPostReplies'
-import { getPostAndUserFromPostId } from '../cacheGetters/getPostAndUserFromPostId'
-import { logger } from '../logger'
+import { Media, Post, PostTag, User } from '../../db.js'
+import { environment } from '../../environment.js'
+import { fediverseTag } from '../../interfaces/fediverse/tags.js'
+import { activityPubObject } from '../../interfaces/fediverse/activityPubObject.js'
+import { emojiToAPTag } from './emojiToAPTag.js'
+import { getPostReplies } from './getPostReplies.js'
+import { getPostAndUserFromPostId } from '../cacheGetters/getPostAndUserFromPostId.js'
+import { logger } from '../logger.js'
 
 async function postToJSONLD(postId: string) {
   const cacheData = await getPostAndUserFromPostId(postId)
@@ -71,7 +71,7 @@ async function postToJSONLD(postId: string) {
       const postUrl = quotedPost.remotePostId
         ? quotedPost.remotePostId
         : `${environment.frontendUrl}/fediverse/post/${quotedPost.id}`
-      tagsAndQuotes = tagsAndQuotes + `<p>RE: <a href="${postUrl}">${postUrl}</a></p>`
+      tagsAndQuotes = tagsAndQuotes + `<br>RE: <a href="${postUrl}">${postUrl}</a><br>`
       fediTags.push({
         type: 'Link',
         name: `RE: ${postUrl}`,

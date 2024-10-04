@@ -1,5 +1,5 @@
-import { activityPubObject } from '../../../interfaces/fediverse/activityPubObject'
-import { logger } from '../../logger'
+import { activityPubObject } from '../../../interfaces/fediverse/activityPubObject.js'
+import { logger } from '../../logger.js'
 
 async function MoveActivity(body: activityPubObject, remoteUser: any, user: any) {
   // WIP move

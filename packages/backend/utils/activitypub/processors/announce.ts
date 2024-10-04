@@ -1,10 +1,10 @@
-import { Post } from '../../../db'
-import { environment } from '../../../environment'
-import { activityPubObject } from '../../../interfaces/fediverse/activityPubObject'
-import { logger } from '../../logger'
-import { getPostThreadRecursive } from '../getPostThreadRecursive'
-import { getApObjectPrivacy } from '../getPrivacy'
-import { signAndAccept } from '../signAndAccept'
+import { Post } from '../../../db.js'
+import { environment } from '../../../environment.js'
+import { activityPubObject } from '../../../interfaces/fediverse/activityPubObject.js'
+import { logger } from '../../logger.js'
+import { getPostThreadRecursive } from '../getPostThreadRecursive.js'
+import { getApObjectPrivacy } from '../getPrivacy.js'
+import { signAndAccept } from '../signAndAccept.js'
 
 async function AnnounceActivity(body: activityPubObject, remoteUser: any, user: any) {
   const apObject: activityPubObject = body

@@ -1,39 +1,42 @@
 import express, { Response } from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import userRoutes from './routes/users'
-import notificationRoutes from './routes/notifications'
-import followsRoutes from './routes/follows'
-import blockRoutes from './routes/blocks'
-import mediaRoutes from './routes/media'
-import postsRoutes from './routes/posts'
-import searchRoutes from './routes/search'
-import deletePost from './routes/deletePost'
-import overrideContentType from './utils/overrideContentType'
-import { environment } from './environment'
-import { frontend } from './routes/frontend'
-import { activityPubRoutes } from './routes/activitypub/activitypub'
-import { wellKnownRoutes } from './routes/activitypub/well-known'
-import cacheRoutes from './routes/remoteCache'
-import likeRoutes from './routes/like'
-import adminRoutes from './routes/admin'
-import swagger from 'swagger-ui-express'
-import muteRoutes from './routes/mute'
-import blockUserServerRoutes from './routes/blockUserServer'
-import { workerInbox, workerSendPostChunk, workerPrepareSendPost, workerGetUser } from './utils/workers'
-import { logger } from './utils/logger'
-import listRoutes from './routes/lists'
-import statusRoutes from './routes/status'
-import dashboardRoutes from './routes/dashboard'
-import forumRoutes from './routes/forum'
-import { SignedRequest } from './interfaces/fediverse/signedRequest'
-import silencePostRoutes from './routes/silencePost'
-import emojiRoutes from './routes/emojis'
-import emojiReactRoutes from './routes/emojiReact'
-import pollRoutes from './routes/polls'
-import checkIpBlocked from './utils/checkIpBlocked'
+import { environment } from './environment.js'
+import { logger } from './utils/logger.js'
 
-const swaggerJSON = require('./swagger.json')
+import { workerInbox, workerPrepareSendPost, workerGetUser, workerSendPostChunk } from './utils/workers.js'
+
+import { SignedRequest } from './interfaces/fediverse/signedRequest.js'
+import { activityPubRoutes } from './routes/activitypub/activitypub.js'
+import { wellKnownRoutes } from './routes/activitypub/well-known.js'
+import adminRoutes from './routes/admin.js'
+import blockRoutes from './routes/blocks.js'
+import blockUserServerRoutes from './routes/blockUserServer.js'
+import dashboardRoutes from './routes/dashboard.js'
+import deletePost from './routes/deletePost.js'
+import emojiReactRoutes from './routes/emojiReact.js'
+import emojiRoutes from './routes/emojis.js'
+import followsRoutes from './routes/follows.js'
+import forumRoutes from './routes/forum.js'
+import { frontend } from './routes/frontend.js'
+import likeRoutes from './routes/like.js'
+import listRoutes from './routes/lists.js'
+import mediaRoutes from './routes/media.js'
+import muteRoutes from './routes/mute.js'
+import notificationRoutes from './routes/notifications.js'
+import pollRoutes from './routes/polls.js'
+import postsRoutes from './routes/posts.js'
+import cacheRoutes from './routes/remoteCache.js'
+import searchRoutes from './routes/search.js'
+import silencePostRoutes from './routes/silencePost.js'
+import statusRoutes from './routes/status.js'
+import userRoutes from './routes/users.js'
+import checkIpBlocked from './utils/checkIpBlocked.js'
+import overrideContentType from './utils/overrideContentType.js'
+import swagger from 'swagger-ui-express'
+import { readFile } from 'fs/promises'
+
+const swaggerJSON = JSON.parse(await readFile(new URL('./swagger.json', import.meta.url), 'utf-8'))
 // rest of the code remains same
 const app = express()
 const PORT = environment.port
@@ -99,24 +102,24 @@ app.listen(PORT, environment.listenIp, () => {
   logger.info('Started app')
 
   if (environment.workers.mainThread) {
-    workerInbox.on('completed', (job) => { })
+    workerInbox.on('completed', (job) => {})
 
     workerInbox.on('failed', (job, err) => {
       logger.warn(`${job?.id} has failed with ${err.message}`)
     })
 
-    workerPrepareSendPost.on('completed', (job) => { })
+    workerPrepareSendPost.on('completed', (job) => {})
 
     workerPrepareSendPost.on('failed', (job, err) => {
       console.warn(`sending post ${job?.id} has failed with ${err.message}`)
     })
 
-    workerGetUser.on('completed', (job) => { })
+    workerGetUser.on('completed', (job) => {})
     workerGetUser.on('failed', (job, err) => {
       console.debug({ message: `get user ${job?.id} has failed with ${err.message}`, data: job?.data, error: err })
     })
 
-    workerSendPostChunk.on('completed', (job) => { })
+    workerSendPostChunk.on('completed', (job) => {})
 
     workerSendPostChunk.on('failed', (job, err) => {
       console.warn(`sending post to some inboxes ${job?.id} has failed with ${err.message}`)

@@ -8,17 +8,17 @@ import {
   QuestionPollQuestion,
   User,
   sequelize
-} from '../../db'
-import { environment } from '../../environment'
-import { activityPubObject } from '../../interfaces/fediverse/activityPubObject'
-import { postPetitionSigned } from './postPetitionSigned'
-import { logger } from '../logger'
+} from '../../db.js'
+import { environment } from '../../environment.js'
+import { activityPubObject } from '../../interfaces/fediverse/activityPubObject.js'
+import { postPetitionSigned } from './postPetitionSigned.js'
+import { logger } from '../logger.js'
 import { Queue, QueueEvents } from 'bullmq'
 import _ from 'underscore'
-import { emojiToAPTag } from './emojiToAPTag'
-import { wait } from '../wait'
-import { loadPoll } from './loadPollFromPost'
-import { getPostThreadRecursive } from './getPostThreadRecursive'
+import { emojiToAPTag } from './emojiToAPTag.js'
+import { wait } from '../wait.js'
+import { loadPoll } from './loadPollFromPost.js'
+import { getPostThreadRecursive } from './getPostThreadRecursive.js'
 
 const sendPostQueue = new Queue('sendPostToInboxes', {
   connection: environment.bullmqConnection,
