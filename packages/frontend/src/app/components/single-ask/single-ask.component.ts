@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Ask } from 'src/app/interfaces/ask';
+
+import { Ask } from 'src/app/interfaces';
 
 import {
   AvatarSmallComponent 

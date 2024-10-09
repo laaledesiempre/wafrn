@@ -1,5 +1,4 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { ReportService } from 'src/app/services/report.service';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -7,9 +6,6 @@ import {
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
-import { ProcessedPost } from 'src/app/interfaces/processed-post';
-import { BlocksService } from 'src/app/services/blocks.service';
-import { MessageService } from 'src/app/services/message.service';
 import { CommonModule } from '@angular/common';
 import {
   MatDialogContent,
@@ -23,7 +19,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-// TODO interfaces and services imports
+
+import { BlocksService } from 'src/app/services/blocks.service';
+import { MessageService } from 'src/app/services/message.service';
+import { ReportService } from 'src/app/services/report.service';
+// TODO services imports
+
+import { ProcessedPost } from 'src/app/interfaces/processed-post';
+
 @Component({
   selector: 'app-report-post',
   templateUrl: './report-post.component.html',

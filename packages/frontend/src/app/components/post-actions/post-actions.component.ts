@@ -1,4 +1,3 @@
-// Here you left it!
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ProcessedPost } from 'src/app/interfaces/processed-post';
 import { MessageService } from 'src/app/services/message.service';

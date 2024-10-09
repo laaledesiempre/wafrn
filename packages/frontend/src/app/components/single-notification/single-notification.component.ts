@@ -1,17 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NotificationType } from 'src/app/enums/notification-type';
-import { UserNotifications } from 'src/app/interfaces/user-notifications';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { environment } from 'src/environments/environment';
 import { MatButton } from '@angular/material/button';
-// todo interfaces import
+
+import { NotificationType } from 'src/app/enums/notification-type';
+
+import { environment } from 'src/environments/environment';
+
 import{
 PostHeaderComponent ,
 PostFragmentComponent ,
 AvatarSmallComponent 
 } from 'src/app/components';
+
+import { UserNotifications } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-single-notification',

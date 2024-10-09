@@ -8,19 +8,19 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { ProcessedPost } from 'src/app/interfaces/processed-post';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { SimplifiedUser } from 'src/app/interfaces/simplified-user';
-import { environment } from 'src/environments/environment';
 import { MatTooltipModule } from '@angular/material/tooltip';
+
 import { PostsService } from 'src/app/services/posts.service';
 import { LoginService } from 'src/app/services/login.service';
 import { JwtService } from 'src/app/services/jwt.service';
 import { MessageService } from 'src/app/services/message.service';
-import { Emoji } from 'src/app/interfaces/emoji';
 import { InjectHtmlModule } from 'src/app/directives/inject-html/inject-html.module';
-// todo interfaces and services imports
+// todo services imports
+
+import { environment } from 'src/environments/environment';
+
 import {
 EmojiReactComponent ,
 AvatarSmallComponent ,
@@ -29,6 +29,12 @@ SingleAskComponent ,
 PollModule ,
 WafrnMediaModule 
 } from 'src/app/components';
+
+import { 
+  SimplifiedUser,
+  ProcessedPost,
+  Emoji
+ } from 'src/app/interfaces';
 
 type EmojiReaction = {
   id: string;
