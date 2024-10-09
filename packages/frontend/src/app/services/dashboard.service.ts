@@ -1,15 +1,20 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
-import { ProcessedPost } from '../interfaces/processed-post';
-import { SimplifiedUser } from '../interfaces/simplified-user';
+
+import { 
+  ProcessedPost,
+  SimplifiedUser,
+  unlinkedPosts,
+  Emoji,
+  BlogDetails,
+  Ask
+} from '../interfaces';
+// TODO services import
 import { PostsService } from './posts.service';
 import { MessageService } from './message.service';
-import { firstValueFrom } from 'rxjs';
-import { unlinkedPosts } from '../interfaces/unlinked-posts';
-import { Emoji } from '../interfaces/emoji';
-import { BlogDetails } from '../interfaces/blogDetails';
-import { Ask } from '../interfaces/ask';
 
 @Injectable({
   providedIn: 'root',

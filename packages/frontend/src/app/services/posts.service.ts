@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
-import { ProcessedPost } from '../interfaces/processed-post';
-import { RawPost } from '../interfaces/raw-post';
-import { MediaService } from './media.service';
 import * as dompurify from 'isomorphic-dompurify'
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
+
+import { 
+  ProcessedPost,
+  RawPost,
+  PostEmojiReaction,
+  unlinkedPosts,
+  SimplifiedUser,
+  UserOptions,
+  Emoji,
+  EmojiCollection
+} from '../interfaces';
+// TODO service imports
+import { MediaService } from './media.service';
 import { JwtService } from './jwt.service';
-import { PostEmojiReaction, unlinkedPosts } from '../interfaces/unlinked-posts';
-import { SimplifiedUser } from '../interfaces/simplified-user';
-import { UserOptions } from '../interfaces/userOptions';
-import { Emoji } from '../interfaces/emoji';
-import { EmojiCollection } from '../interfaces/emoji-collection';
 import { MessageService } from './message.service';
+
+import { environment } from 'src/environments/environment';
+
 import { emojis } from '../lists/emoji-compact';
+
 @Injectable({
   providedIn: 'root',
 })

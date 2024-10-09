@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
-import { ReplaySubject } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { ProcessedPost } from '../interfaces/processed-post';
 import { MatDialog } from '@angular/material/dialog';
+import { ReplaySubject } from 'rxjs';
+
+import { environment } from 'src/environments/environment';
+
+import { ProcessedPost } from 'src/app/interfaces';
 
 @Injectable({
   providedIn: 'any',

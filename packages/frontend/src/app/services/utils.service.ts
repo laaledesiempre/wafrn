@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { PostsService } from './posts.service';
+
+import { PostsService } from 'src/app/services';
 
 @Injectable({
   providedIn: 'root'

@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { server } from '../interfaces/servers';
 import { firstValueFrom } from 'rxjs';
-import { SimplifiedUser } from '../interfaces/simplified-user';
-import { statsReply } from '../interfaces/statsReply';
+
+import { environment } from 'src/environments/environment';
+
+import { server, SimplifiedUser, statsReply } from 'src/app/interfaces';
 
 @Injectable({
   providedIn: 'root',

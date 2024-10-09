@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
-import { followsResponse } from '../interfaces/follows-response';
-import { Ask } from '../interfaces/ask';
+
+import { Ask, followsResponse } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'

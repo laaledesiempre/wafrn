@@ -1,16 +1,24 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { Follower } from '../interfaces/follower';
-import { Reblog } from '../interfaces/reblog';
-import { JwtService } from './jwt.service';
 import { firstValueFrom } from 'rxjs';
-import { SimplifiedUser } from '../interfaces/simplified-user';
-import { Quote, basicPost } from '../interfaces/unlinked-posts';
-import { UserNotifications } from '../interfaces/user-notifications';
-import { NotificationType } from '../enums/notification-type';
-import { ProcessedPost } from '../interfaces/processed-post';
+
+import { environment } from 'src/environments/environment';
+
+import {
+  Follower,
+  Reblog,
+  SimplifiedUser,
+  Quote,
+  basicPost,
+  UserNotifications,
+  ProcessedPost
+} from 'src/app/interfaces';
+
+// TODO service imports
+import { JwtService } from './jwt.service';
 import { PostsService } from './posts.service';
+
+import { NotificationType } from '../enums/notification-type';
 
 @Injectable({
   providedIn: 'root',

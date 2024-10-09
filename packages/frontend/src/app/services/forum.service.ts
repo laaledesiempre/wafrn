@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { unlinkedPosts } from '../interfaces/unlinked-posts';
+
+import { unlinkedPosts } from '../interfaces';
+//TODO import services
 import { PostsService } from './posts.service';
+
 import { environment } from 'src/environments/environment';
 
 @Injectable({

@@ -1,15 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { WafrnMedia } from '../interfaces/wafrn-media';
-import { Action, EditorLauncherData } from '../interfaces/editor-launcher-data';
 import { MatDialog } from '@angular/material/dialog';
-import { ProcessedPost } from '../interfaces/processed-post';
-import { Ask } from '../interfaces/ask';
-import { DashboardService } from './dashboard.service';
 import { Router } from '@angular/router';
-import { EditorData } from '../interfaces/editor-data';
+
+import { environment } from 'src/environments/environment';
+
+import { DashboardService } from 'src/app/services';
+
+import { 
+  WafrnMedia,
+  Action,
+  EditorLauncherData,
+  ProcessedPost,
+  Ask,
+  EditorData
+} from '../interfaces';
 
 @Injectable({
   providedIn: 'any',
